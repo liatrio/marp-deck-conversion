@@ -1,0 +1,19 @@
+name: Convert and Push Presentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+      - name: test if installation works
+        run: marp -v
