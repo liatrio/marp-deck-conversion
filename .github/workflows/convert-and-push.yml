@@ -29,11 +29,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: Convert
     steps:
-      - name: Install semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
-
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
