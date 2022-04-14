@@ -7,6 +7,10 @@ on:
 
 jobs:
   Convert:
+    strategy:
+      matrix:
+        format: [pptx, html]
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,6 +20,4 @@ jobs:
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
       - name: Convert
-        run: marp --pptx marp-test.md
-      - name: check
-        run: ls
+        run: marp --${{matrix.format}} marp-test.md
