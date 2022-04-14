@@ -21,3 +21,5 @@ jobs:
         run: npm install -g @marp-team/marp-cli
       - name: Convert
         run: marp --${{matrix.format}} marp-test.md
+      - name: check
+        run: ls
