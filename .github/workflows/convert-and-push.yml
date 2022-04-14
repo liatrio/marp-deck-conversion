@@ -16,6 +16,6 @@ jobs:
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
       - name: Convert
-        run: marp -pptx marp-test.md
+        run: marp --pptx marp-test.md
       - name: check
         run: ls
