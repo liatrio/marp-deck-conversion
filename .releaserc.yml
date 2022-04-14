@@ -1,7 +1,9 @@
 branches:
   - main
 repositoryUrl: 'git@github.com:liatrio/marp-deck-conversion.git'
+preset: conventionalcommits
 plugins:
+  - '@semantic-release/commit-analyzer'
   - path: '@semantic-release/github'
     failComment: false
     successComment: false
