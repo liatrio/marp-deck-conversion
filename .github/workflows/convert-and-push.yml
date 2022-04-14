@@ -25,20 +25,14 @@ jobs:
       - name: check
         run: ls
 
-  Push:
+  Release:
     runs-on: ubuntu-latest
     needs: Convert
     steps:
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install semantic-release
+        run: npx semantic-release
 
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/liatrio/marp-deckset-conversion:latest
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release

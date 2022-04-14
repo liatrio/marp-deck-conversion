@@ -1,0 +1,10 @@
+branches:
+  - main
+repositoryUrl: 'git@github.com:liatrio/marp-deck-conversion.git'
+plugins:
+  - path: '@semantic-release/github'
+    failComment: false
+    successComment: false
+    assets:
+      - path: '*.pptx'
+        label: Powerpoint
