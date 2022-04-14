@@ -15,5 +15,7 @@ jobs:
           node-version: '14'
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
-      - name: test if installation works
-        run: marp -v
+      - name: Convert
+        run: marp pptx marp-test.md
+      - name: check
+        run: ls
