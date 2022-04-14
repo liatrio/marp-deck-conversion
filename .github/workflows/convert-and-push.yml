@@ -23,3 +23,20 @@ jobs:
         run: marp --${{matrix.format}} marp-test.md
       - name: check
         run: ls
+
+  Push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/liatrio/marp-deckset-conversion:latest
