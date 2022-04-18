@@ -24,6 +24,12 @@ jobs:
         run: marp --pptx marp-test.md
       - name: check
         run: ls
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: *.pptx
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # Release:
   #   runs-on: ubuntu-latest
