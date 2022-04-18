@@ -27,6 +27,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: test
           files: marp-test.pptx
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
